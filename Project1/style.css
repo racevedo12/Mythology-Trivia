@@ -1,6 +1,5 @@
 body
 {
-    background-color: bisque;
     margin: 2% 12%;
 }
 
@@ -18,4 +17,19 @@ body
 #input-button
 {
     width: 20%;
+}
+
+#preview-div
+{
+    border: black 1px solid;
+    margin-top: 8%;
+    margin-left: 6%;
+    width: 800px;
+    height: 500px;
+    background-color: white
+}
+
+.popup-color
+{
+    background-color: rgba(0,0,0,0.4);
 }
