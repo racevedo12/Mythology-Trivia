@@ -1,6 +1,10 @@
-body{background-color: bisque;}
+body
+{
+    background-color: bisque;
+    margin: 2% 4%;
+}
 
-.header
+.header-tags
 {
     text-align: center;
 }
