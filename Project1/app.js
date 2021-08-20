@@ -1,8 +1,10 @@
+// Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
 const questions = [];
 
+// Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
 {
     // Changing the layout of the page into the pop up layout
@@ -47,13 +49,14 @@ const previewQuestions = () =>
 
 };
 
+// Change color of backgound, hide the input div and make it look like a popup window
 const popupLayout = () =>
 {
     inputDiv.classList.toggle("dissapear");
     document.body.classList.toggle("popup-color");
-    
 };
 
+// Start the Game
 const startGame = () =>
 {
     popupLayout();
