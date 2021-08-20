@@ -2,7 +2,15 @@
 const inputDiv = document.querySelector(".input-div");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
-const questions = [];
+
+// Variables for the API
+const baseURL = "https://opentdb.com/api.php?amount=";
+const ampersand = "&";
+const numQuestion = 0;
+const category = 20;
+const type = "multiple";
+
+// const questions = [];
 
 // Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
