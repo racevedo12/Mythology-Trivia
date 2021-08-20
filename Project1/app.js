@@ -30,9 +30,9 @@ const previewQuestions = () =>
 
 };
 
-// const startGame = () =>
-// {
-
-// };
+const startGame = () =>
+{
+    document.body.classList.toggle("popup-color");
+};
 
 inputButton.addEventListener("click", previewQuestions);
