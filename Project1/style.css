@@ -10,8 +10,12 @@ body
     text-align: center;
 }
 
-
 #input-label
 {
     margin-right: 3%;
+}
+
+#input-button
+{
+    width: 20%;
 }
