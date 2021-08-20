@@ -4,13 +4,22 @@ const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
 
 // Variables for the API
-const baseURL = "https://opentdb.com/api.php?amount=";
+const baseURL = "https://opentdb.com/api.php?";
 const ampersand = "&";
-const numQuestion = 0;
-const category = 20;
-const type = "multiple";
+const amount = "amount=";
+const category = "category=20";
+const type = "type=multiple";
 
 // const questions = [];
+
+const getData = (numQuestions) =>
+{
+    const queryURL = baseURL + amount + numQuestions + ampersand + category + ampersand + type;
+
+    fetch(queryURL)
+    .then(response => response.json())
+    .then(questions => console.log(questions));
+};
 
 // Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
@@ -71,3 +80,5 @@ const startGame = () =>
 };
 
 inputButton.addEventListener("click", previewQuestions);
+
+getData(2);
