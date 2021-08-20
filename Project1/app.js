@@ -10,15 +10,30 @@ const amount = "amount=";
 const category = "category=20";
 const type = "type=multiple";
 
-// const questions = [];
-
+// Get the questions data from the API and add them into the questions array
 const getData = (numQuestions) =>
 {
+    // Construct the queryURL in order to call the API and get the data
     const queryURL = baseURL + amount + numQuestions + ampersand + category + ampersand + type;
 
     fetch(queryURL)
     .then(response => response.json())
-    .then(questions => console.log(questions));
+    .then( (questionData) =>
+    {
+        const theQuestions = questionData.results;
+        for (let question of theQuestions)
+        {
+            console.log(question.question)
+        }
+    });
+    
+};
+
+// Change color of backgound, hide the input div and make it look like a popup window
+const popupLayout = () =>
+{
+    inputDiv.classList.toggle("dissapear");
+    document.body.classList.toggle("popup-color");
 };
 
 // Makes a preview window for user to review questions with answers included
@@ -66,13 +81,6 @@ const previewQuestions = () =>
 
 };
 
-// Change color of backgound, hide the input div and make it look like a popup window
-const popupLayout = () =>
-{
-    inputDiv.classList.toggle("dissapear");
-    document.body.classList.toggle("popup-color");
-};
-
 // Start the Game
 const startGame = () =>
 {
@@ -80,5 +88,4 @@ const startGame = () =>
 };
 
 inputButton.addEventListener("click", previewQuestions);
-
-getData(2);
+getData(2)
