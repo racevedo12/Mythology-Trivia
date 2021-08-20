@@ -15,7 +15,7 @@ const previewQuestions = () =>
 
     // Created a div to style all the elements inside the preview div
     const previewElements = document.createElement("div");
-    previewElements.setAttribute("class", "review-elements");
+    previewElements.setAttribute("class", "preview-elements");
 
     // Creating an h3 tag for the question
     const questionTag = document.createElement("h3");
