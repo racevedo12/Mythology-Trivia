@@ -1,17 +1,21 @@
-// console.log("Hello There");
-
+const inputDiv = document.querySelector(".input-div");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
 const questions = [];
 
 const previewQuestions = () =>
 {
-    // Changing the color of the page
-    document.body.classList.toggle("popup-color");
+    // Changing the layout of the page into the pop up layout
+    // That means hidding the input div and changing the background color
+    popupLayout();
 
     // Creating a div for the popup review div and assigning an id for later styles
     const previewDiv = document.createElement("div");
     previewDiv.setAttribute("id", "preview-div");
+
+    // Created a div to style all the elements inside the preview div
+    const previewElements = document.createElement("div");
+    previewElements.setAttribute("class", "review-elements");
 
     // Creating an h3 tag for the question
     const questionTag = document.createElement("h3");
@@ -21,7 +25,7 @@ const previewQuestions = () =>
     const answerTag = document.createElement("h3");
     answerTag.innerText = "Answer Test";
 
-    // Creating a button for the review div in order to start the game 
+    // Creating a button for the preview div in order to start the game 
     // and change the color back to white
     const previewButton = document.createElement("button");
     previewButton.setAttribute("id", "preview-button");
@@ -30,19 +34,29 @@ const previewQuestions = () =>
     // Adding an event listener into the button
     previewButton.addEventListener("click", startGame);
 
-    // Adding all the elements into the review div
-    previewDiv.append(questionTag);
-    previewDiv.append(answerTag);
-    previewDiv.append(previewButton);
+    // Adding all the elements into the elements preview div
+    previewElements.append(questionTag);
+    previewElements.append(answerTag);
+    previewElements.append(previewButton);
+
+    // Added the element divs into the preview div
+    previewDiv.append(previewElements);
 
     // Adding the review div into the container div
     containerDiv.append(previewDiv);
 
 };
 
+const popupLayout = () =>
+{
+    inputDiv.classList.toggle("dissapear");
+    document.body.classList.toggle("popup-color");
+    
+};
+
 const startGame = () =>
 {
-    document.body.classList.toggle("popup-color");
+    popupLayout();
 };
 
 inputButton.addEventListener("click", previewQuestions);

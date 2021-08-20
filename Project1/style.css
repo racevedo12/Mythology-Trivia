@@ -5,7 +5,6 @@ body
 
 .header-tags
 {
-    
     text-align: center;
 }
 
@@ -26,10 +25,15 @@ body
     margin-left: 6%;
     width: 800px;
     height: 500px;
-    background-color: white
+    background-color: aliceblue;
 }
 
 .popup-color
 {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.87);
+}
+
+.dissapear
+{
+    visibility: hidden;
 }
