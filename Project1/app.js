@@ -1,5 +1,6 @@
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
+const inputText = document.querySelector("#input-text");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
 
@@ -9,32 +10,6 @@ const ampersand = "&";
 const amount = "amount=";
 const category = "category=20";
 const type = "type=multiple";
-
-// Get the questions data from the API and add them into the questions array
-const getData = (numQuestions) =>
-{
-    // Construct the queryURL in order to call the API and get the data
-    const queryURL = baseURL + amount + numQuestions + ampersand + category + ampersand + type;
-
-    fetch(queryURL)
-    .then(response => response.json())
-    .then( (questionData) =>
-    {
-        const theQuestions = questionData.results;
-        for (let question of theQuestions)
-        {
-            console.log(question.question)
-        }
-    });
-    
-};
-
-// Change color of backgound, hide the input div and make it look like a popup window
-const popupLayout = () =>
-{
-    inputDiv.classList.toggle("dissapear");
-    document.body.classList.toggle("popup-color");
-};
 
 // Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
@@ -51,34 +26,63 @@ const previewQuestions = () =>
     const previewElements = document.createElement("div");
     previewElements.setAttribute("class", "preview-elements");
 
-    // Creating an h3 tag for the question
-    const questionTag = document.createElement("h3");
-    questionTag.innerText = "Question Test";
+    // Construct the queryURL in order to call the API and get the data
+    const queryURL = baseURL + amount + inputText.value + ampersand + category + ampersand + type;
 
-    // Creating another h3 tag for the answer of the question 
-    const answerTag = document.createElement("h3");
-    answerTag.innerText = "Answer Test";
+    fetch(queryURL)
+    .then(response => response.json())
+    .then( (data) =>
+    {
+        const theQuestions = data.results;
+        let numOfQuestion = 1;
 
-    // Creating a button for the preview div in order to start the game 
-    // and change the color back to white
-    const previewButton = document.createElement("button");
-    previewButton.setAttribute("id", "preview-button");
-    previewButton.innerText = "Ready to Take Trivia";
+        for (let questionData of theQuestions)
+        {
+            
 
-    // Adding an event listener into the button
-    previewButton.addEventListener("click", startGame);
+            console.log(questionData)
+            // Creating a p tag for the question with all different answers
+            const questionTag = document.createElement("p");
+            questionTag.innerText = numOfQuestion + ") " + questionData.question + " " + questionData.incorrect_answers +  ", " + questionData.correct_answer;
 
-    // Adding all the elements into the elements preview div
-    previewElements.append(questionTag);
-    previewElements.append(answerTag);
-    previewElements.append(previewButton);
+            // Creating another p tag for the answer of the question 
+            const answerTag = document.createElement("p");
+            answerTag.innerText = questionData.correct_answer;
 
-    // Added the element divs into the preview div
-    previewDiv.append(previewElements);
+            // Adding the question and answer elements into the elements preview div
+            previewElements.append(questionTag);
+            previewElements.append(answerTag);
+            numOfQuestion++;
 
-    // Adding the review div into the container div
-    containerDiv.append(previewDiv);
+        }
 
+        // Creating a button for the preview div in order to start the game 
+        // and change the color back to white
+        const previewButton = document.createElement("button");
+        previewButton.setAttribute("id", "preview-button");
+        previewButton.innerText = "Ready to Take Trivia";
+
+        // Adding an event listener into the button
+        previewButton.addEventListener("click", startGame);
+
+        // Adding the button into the elements preview div
+        previewElements.append(previewButton);
+
+        // Added the element divs into the preview div
+        previewDiv.append(previewElements);
+
+         // Adding the review div into the container div
+        containerDiv.append(previewDiv);
+
+    });
+    
+};
+
+// Change color of backgound, hide the input div and make it look like a popup window
+const popupLayout = () =>
+{
+    inputDiv.classList.toggle("dissapear");
+    document.body.classList.toggle("popup-color");
 };
 
 // Start the Game
@@ -88,4 +92,3 @@ const startGame = () =>
 };
 
 inputButton.addEventListener("click", previewQuestions);
-getData(2)

@@ -24,7 +24,7 @@ body
     margin-top: 8%;
     margin-left: 6%;
     padding-right: 30%;
-    width: 50%;
+    width: 70%;
     height: auto;
     background-color: aliceblue;
 }
@@ -39,17 +39,17 @@ body
     visibility: hidden;
 }
 
-.preview-elements
+/* .preview-elements
 {
-    margin-left: 15%;
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between;
-}
+    margin-left: 4%;
+    /* display: flex; */
+    /* flex-wrap: wrap;  */
+    /* justify-content: space-between; */
+/* } */
 
 #preview-button
 {
-    width: 50%;
+    width: 40%;
     padding: 2%;
     margin-bottom: 3%;
     position: relative;
