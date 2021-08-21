@@ -91,7 +91,14 @@ const previewQuestions = () =>
 // Change color of backgound, hide the input div and make it look like a popup window
 const popupLayout = () =>
 {
-    inputDiv.classList.toggle("dissapear");
+    // Checks if the input div has the class dissapear, if it doesn't have it, then apply it to it
+    // This makes the input div inacessible when you are reviewing questions and taking the test
+    // Just a safety measure so they cannot keep creating new preview Questions divs
+    if (!inputDiv.classList.contains("dissapear"))
+    {
+        inputDiv.classList.toggle("dissapear");
+    }
+    
     document.body.classList.toggle("popup-color");
 };
 
