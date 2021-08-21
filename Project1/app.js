@@ -29,21 +29,32 @@ const previewQuestions = () =>
     // Construct the queryURL in order to call the API and get the data
     const queryURL = baseURL + amount + inputText.value + ampersand + category + ampersand + type;
 
+    // Calling the API to get data
     fetch(queryURL)
     .then(response => response.json())
     .then( (data) =>
     {
+        // Create a variable to assign json data which includes the questions and answers
         const theQuestions = data.results;
+
+        // This is just to show the number of the question that user is currently looking
+        // Ex: 1) Blablabla.  2) lorem ipsum.  
         let numOfQuestion = 1;
 
+        // A for loop to iterate the theQuestions array of objects to get each question with its data
         for (let questionData of theQuestions)
         {
-            
+            // Declare variables to hold the questions and different answers
+            let question = questionData.question;
+            let incorrectAnswers = questionData.incorrect_answers;
+            let correctAnswer = questionData.correct_answer;
 
+            // Test
             console.log(questionData)
+
             // Creating a p tag for the question with all different answers
             const questionTag = document.createElement("p");
-            questionTag.innerText = numOfQuestion + ") " + questionData.question + " " + questionData.incorrect_answers +  ", " + questionData.correct_answer;
+            questionTag.innerText = numOfQuestion + ") " + question + " " + incorrectAnswers +  ", " + correctAnswer;
 
             // Creating another p tag for the answer of the question 
             const answerTag = document.createElement("p");
