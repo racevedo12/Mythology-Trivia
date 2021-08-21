@@ -50,14 +50,16 @@ const previewQuestions = () =>
             let correctAnswer = questionData.correct_answer;
 
             // Test
-            console.log(questionData)
+            // console.log(questionData)
 
-            // Creating a p tag for the question with all different answers
-            const questionTag = document.createElement("p");
+            // Creating a label tag for the question with all different answers with a class
+            const questionTag = document.createElement("label");
+            questionTag.setAttribute("class", "question-label");
             questionTag.innerText = numOfQuestion + ") " + question + " " + incorrectAnswers +  ", " + correctAnswer;
 
-            // Creating another p tag for the answer of the question 
-            const answerTag = document.createElement("p");
+            // Creating another label tag for the answer of the question with a class 
+            const answerTag = document.createElement("label");
+            answerTag.setAttribute("class", "answer-label");
             answerTag.innerText = questionData.correct_answer;
 
             // Adding the question and answer elements into the elements preview div
