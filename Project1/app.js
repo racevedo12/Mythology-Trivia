@@ -130,7 +130,11 @@ const startGame = (e) =>
     popupLayout();
     // const theQuestions = questions;
     // console.log(possibleAnswers)
+
+    // Testing
     console.log(questions)
+
+    // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
 };
 
