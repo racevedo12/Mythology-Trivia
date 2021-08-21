@@ -37,7 +37,7 @@ const previewQuestions = () =>
         // Create a variable to assign json data which includes the questions and answers
         // Results is an array of objects that you get from the response.json()
         const theQuestions = data.results;
-        
+
         // This is just to show the number of the question that user is currently looking
         // Ex: 1) Blablabla.  2) lorem ipsum.  
         let numOfQuestion = 1;
@@ -103,11 +103,12 @@ const popupLayout = () =>
     // Changes the background color of the body of the page
     document.body.classList.toggle("popup-color");
 };
-
+// inputButton.parentElement.remove()
 // Start the Game
-const startGame = () =>
+const startGame = (e) =>
 {
     popupLayout();
+    e.currentTarget.parentElement.parentElement.remove()
 };
 
 inputButton.addEventListener("click", previewQuestions);
