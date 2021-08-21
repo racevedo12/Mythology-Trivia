@@ -53,8 +53,13 @@ body
 .question-label
 {
     max-width: 50%;
-    padding-right: 8%;
+    padding-right: 10%;
     padding-bottom: 5%;
+}
+
+.answers-label
+{
+    padding-right: 3%;
 }
 
 #preview-button

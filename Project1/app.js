@@ -11,6 +11,9 @@ const amount = "amount=";
 const category = "category=20";
 const type = "type=multiple";
 
+// An array to hold all the questions objects
+const questions = [];
+
 // Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
 {
@@ -46,23 +49,37 @@ const previewQuestions = () =>
         for (let questionData of theQuestions)
         {
             // Declare variables to hold the questions and different answers
-            let question = questionData.question;
-            let incorrectAnswers = questionData.incorrect_answers;
-            let correctAnswer = questionData.correct_answer;
+            let theQuestion = questionData.question;
+            let theIncorrectAnswers = questionData.incorrect_answers;
+            let theCorrectAnswer = questionData.correct_answer;
 
             // Creating a label tag for the question with all different answers with a class
             const questionLabel = document.createElement("label");
             questionLabel.setAttribute("class", "question-label");
-            questionLabel.innerText = numOfQuestion + ") " + question + " " + incorrectAnswers +  ", " + correctAnswer;
-
+            questionLabel.innerText = numOfQuestion + ") " + theQuestion + " " + theIncorrectAnswers +  ", " + theCorrectAnswer;
+            
             // Creating another label tag for the answer of the question with a class 
             const answerLabel = document.createElement("label");
             answerLabel.setAttribute("class", "answer-label");
-            answerLabel.innerText = correctAnswer;
+            answerLabel.innerText = theCorrectAnswer;
 
             // Adding the question and answer elements into the elements preview div
             previewElements.append(questionLabel);
             previewElements.append(answerLabel);
+
+            // Create an object from the data to later add it into the questions array of objects
+            let questionObj = 
+            {
+                questionNumber: numOfQuestion,
+                question: theQuestion,
+                incorrectAnswers: theIncorrectAnswers,
+                correctAnswer: theCorrectAnswer
+            }
+
+            // Adding the object into the question array of objects
+            questions.push(questionObj);
+
+            // Adding 1 each iteration of the loop 
             numOfQuestion++;
 
         }
@@ -73,12 +90,8 @@ const previewQuestions = () =>
         previewButton.setAttribute("id", "preview-button");
         previewButton.innerText = "Ready to Take Trivia";
 
-        // Adding an event listener into the button
-        previewButton.onclick = () =>
-        {
-            popupLayout();
-            previewDiv.remove();
-        };
+        // Adding an event listener to the preview button to start the game
+        previewButton.addEventListener("click", startGame)
 
         // Adding the button into the elements preview div
         previewElements.append(previewButton);
@@ -112,13 +125,13 @@ const popupLayout = () =>
 // inputButton.parentElement.getElementsByClassName()
 
 // Start the Game
-// const startGame = (e, questions) =>
-// {
-//     popupLayout();
-//     const theQuestions = e.currentTarget.parentElement.getElementsByClassName("question-label");
-//     // console.log(possibleAnswers)
-//     console.log(theQuestions[0])
-//     e.currentTarget.parentElement.parentElement.remove()
-// };
+const startGame = (e) =>
+{
+    popupLayout();
+    // const theQuestions = questions;
+    // console.log(possibleAnswers)
+    console.log(questions)
+    e.currentTarget.parentElement.parentElement.remove()
+};
 
 inputButton.addEventListener("click", previewQuestions);
