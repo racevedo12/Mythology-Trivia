@@ -8,6 +8,11 @@ body
     text-align: center;
 }
 
+.input-div
+{
+    margin-top: 8%;
+}
+
 .container
 {
     width: 100%;
