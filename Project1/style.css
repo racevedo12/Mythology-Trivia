@@ -61,15 +61,19 @@ body
 .question-label
 {
     max-width: 50%;
-    padding-right: 10%;
+    padding-right: 20%;
     padding-bottom: 3%;
 }
 
 #preview-button
 {
-    /* max-width: 40%; */
-    padding: 2%;
+    max-width: 40%;
+    padding: 4%;
+    /* margin-left: 3%; */
+    margin-top: 12%;
     margin-bottom: 3%;
-    /* position: relative; */
-    /* left: 70%; */
+    /* margin-right: 10%; */
+    
+    position: relative;
+    right: 14%;
 }

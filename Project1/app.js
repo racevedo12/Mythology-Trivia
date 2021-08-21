@@ -68,7 +68,7 @@ const previewQuestions = () =>
             numOfQuestion++;
 
         }
-
+        
         // Creating a button for the preview div in order to start the game 
         // and change the color back to white
         const previewButton = document.createElement("button");
