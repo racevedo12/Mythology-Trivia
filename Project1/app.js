@@ -51,18 +51,18 @@ const previewQuestions = () =>
             let correctAnswer = questionData.correct_answer;
 
             // Creating a label tag for the question with all different answers with a class
-            const questionTag = document.createElement("label");
-            questionTag.setAttribute("class", "question-label");
-            questionTag.innerText = numOfQuestion + ") " + question + " " + incorrectAnswers +  ", " + correctAnswer;
+            const questionLabel = document.createElement("label");
+            questionLabel.setAttribute("class", "question-label");
+            questionLabel.innerText = numOfQuestion + ") " + question + " " + incorrectAnswers +  ", " + correctAnswer;
 
             // Creating another label tag for the answer of the question with a class 
-            const answerTag = document.createElement("label");
-            answerTag.setAttribute("class", "answer-label");
-            answerTag.innerText = questionData.correct_answer;
+            const answerLabel = document.createElement("label");
+            answerLabel.setAttribute("class", "answer-label");
+            answerLabel.innerText = correctAnswer;
 
             // Adding the question and answer elements into the elements preview div
-            previewElements.append(questionTag);
-            previewElements.append(answerTag);
+            previewElements.append(questionLabel);
+            previewElements.append(answerLabel);
             numOfQuestion++;
 
         }
@@ -74,7 +74,11 @@ const previewQuestions = () =>
         previewButton.innerText = "Ready to Take Trivia";
 
         // Adding an event listener into the button
-        previewButton.addEventListener("click", startGame);
+        previewButton.onclick = () =>
+        {
+            popupLayout();
+            previewDiv.remove();
+        };
 
         // Adding the button into the elements preview div
         previewElements.append(previewButton);
@@ -103,12 +107,18 @@ const popupLayout = () =>
     // Changes the background color of the body of the page
     document.body.classList.toggle("popup-color");
 };
-// inputButton.parentElement.remove()
+
+// Test
+// inputButton.parentElement.getElementsByClassName()
+
 // Start the Game
-const startGame = (e) =>
-{
-    popupLayout();
-    e.currentTarget.parentElement.parentElement.remove()
-};
+// const startGame = (e, questions) =>
+// {
+//     popupLayout();
+//     const theQuestions = e.currentTarget.parentElement.getElementsByClassName("question-label");
+//     // console.log(possibleAnswers)
+//     console.log(theQuestions[0])
+//     e.currentTarget.parentElement.parentElement.remove()
+// };
 
 inputButton.addEventListener("click", previewQuestions);
