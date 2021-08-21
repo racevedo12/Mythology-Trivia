@@ -49,9 +49,6 @@ const previewQuestions = () =>
             let incorrectAnswers = questionData.incorrect_answers;
             let correctAnswer = questionData.correct_answer;
 
-            // Test
-            // console.log(questionData)
-
             // Creating a label tag for the question with all different answers with a class
             const questionTag = document.createElement("label");
             questionTag.setAttribute("class", "question-label");
