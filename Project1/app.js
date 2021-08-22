@@ -54,18 +54,18 @@ const previewQuestions = () =>
             let theCorrectAnswer = questionData.correct_answer;
 
             // Creating a label tag for the question with all different answers with a class
-            const questionLabel = document.createElement("label");
-            questionLabel.setAttribute("class", "question-label");
-            questionLabel.innerText = numOfQuestion + ") " + theQuestion + " " + theIncorrectAnswers +  ", " + theCorrectAnswer;
+            const previewQuestionLabel = document.createElement("label");
+            previewQuestionLabel.setAttribute("class", "preview-question-label");
+            previewQuestionLabel.innerText = numOfQuestion + ") " + theQuestion + " " + theIncorrectAnswers +  ", " + theCorrectAnswer;
             
             // Creating another label tag for the answer of the question with a class 
-            const answerLabel = document.createElement("label");
-            answerLabel.setAttribute("class", "answer-label");
-            answerLabel.innerText = theCorrectAnswer;
+            const previewAnswerLabel = document.createElement("label");
+            previewAnswerLabel.setAttribute("class", "preview-answer-label");
+            previewAnswerLabel.innerText = theCorrectAnswer;
 
             // Adding the question and answer elements into the elements preview div
-            previewElements.append(questionLabel);
-            previewElements.append(answerLabel);
+            previewElements.append(previewQuestionLabel);
+            previewElements.append(previewAnswerLabel);
 
             // Create an object from the data to later add it into the questions array of objects
             let questionObj = 
@@ -128,14 +128,79 @@ const popupLayout = () =>
 const startGame = (e) =>
 {
     popupLayout();
-    // const theQuestions = questions;
-    // console.log(possibleAnswers)
 
     // Testing
-    console.log(questions)
+    // console.log(questions)
 
     // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
+
+    for (let question of questions)
+    {
+        // Creating a div for the question container
+        const questionContainerDiv = document.createElement("div");
+        questionContainerDiv.setAttribute("class", "question-container-div");
+
+        // Created a div to style all the elements inside the question container div
+        const questionElementsDiv = document.createElement("div");
+        questionElementsDiv.setAttribute("class", "question-elements-div");
+
+        // Declare variables to hold the questions and different answers
+        let theQuestionNum = question.questionNumber;
+        let theQuestion = question.question;
+        let theIncorrectAnswers = question.incorrectAnswers;
+        let theCorrectAnswer = question.correctAnswer;
+        
+
+        // Creating a label tag for the question number
+        const questionNumLabel = document.createElement("label");
+        questionNumLabel.setAttribute("class", "question-num-label");
+        questionNumLabel.innerText = "#" + theQuestionNum;
+
+        // Creating a label tag for the question with all different answers with a class
+        const questionLabel = document.createElement("label");
+        questionLabel.setAttribute("class", "question-label");
+        questionLabel.innerText = theQuestion;
+        
+        // Creating buttons for different answers 
+
+        // First Answer Choice
+        const answer1Button = document.createElement("button");
+        answer1Button.setAttribute("class", "answers-buttons");
+        answer1Button.innerText = theIncorrectAnswers[2];
+
+        // Second Answer Choice
+        const answer2Button = document.createElement("button");
+        answer2Button.setAttribute("class", "answers-buttons");
+        answer2Button.innerText = theIncorrectAnswers[0];
+
+        // Third Answer Choice
+        const answer3Button = document.createElement("button");
+        answer3Button.setAttribute("class", "answers-buttons");
+        answer3Button.innerText = theCorrectAnswer;
+
+        // Fourth Answer Choice
+        const answer4Button = document.createElement("button");
+        answer4Button.setAttribute("class", "answers-buttons");
+        answer4Button.innerText = theIncorrectAnswers[1];
+
+        // Adding all the elements into the question elements div
+        questionElementsDiv.append(questionNumLabel);
+        questionElementsDiv.append(questionLabel);
+        questionElementsDiv.append(answer1Button);
+        questionElementsDiv.append(answer2Button);
+        questionElementsDiv.append(answer3Button);
+        questionElementsDiv.append(answer4Button);
+
+        // Adding the question elements div into the question container div
+        questionContainerDiv.append(questionElementsDiv);
+
+        // Adding the question container div into the main container div of the page
+        containerDiv.append(questionContainerDiv);
+    }
+    
+
+
 };
 
 inputButton.addEventListener("click", previewQuestions);

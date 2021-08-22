@@ -55,14 +55,14 @@ body
     flex-wrap: wrap;
 }
 
-.question-label
+.preview-question-label
 {
     max-width: 50%;
     padding-right: 10%;
     padding-bottom: 5%;
 }
 
-.answers-label
+.preview-answers-label
 {
     padding-right: 3%;
 }
