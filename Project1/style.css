@@ -1,6 +1,7 @@
 body
 {
     margin: 2% 12%;
+    background-color: bisque;
 }
 
 .header-tags
@@ -34,6 +35,7 @@ body
     border: black 1px solid;
     margin-top: 8%;
     background-color: aliceblue;
+    /* max-width: fit-content; */
 }
 
 .popup-color
@@ -57,7 +59,7 @@ body
 
 .preview-question-label
 {
-    max-width: 50%;
+    max-width: 40%;
     padding-right: 10%;
     padding-bottom: 5%;
 }
@@ -69,8 +71,8 @@ body
 
 #preview-button
 {
-    max-width: 40%;
-    padding: 4%;
+    max-width: 30%;
+    padding: 4% 6%;
     margin-top: 12%;
     margin-bottom: 3%;
     
@@ -82,4 +84,34 @@ body
 {
     border: 1px solid black;
     margin-bottom: 2%;
+    
+}
+
+.question-elements-div
+{
+    /* margin-top: 1%;
+    margin-left: 3%; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question-num-label
+{
+    margin-left: 1%;
+}
+
+.question-label
+{
+    margin-left: 37%;
+    margin-right: 8%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-right: 20%;
+}
+
+.answers-buttons
+{
+    max-width: 15%;
+    margin-left: 15%;
+    margin-bottom: 5%;
 }

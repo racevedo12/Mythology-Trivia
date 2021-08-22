@@ -150,7 +150,6 @@ const startGame = (e) =>
         let theQuestion = question.question;
         let theIncorrectAnswers = question.incorrectAnswers;
         let theCorrectAnswer = question.correctAnswer;
-        
 
         // Creating a label tag for the question number
         const questionNumLabel = document.createElement("label");
