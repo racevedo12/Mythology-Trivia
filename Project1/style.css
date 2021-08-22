@@ -79,11 +79,15 @@ body
     right: 14%;
 }
 
+#score-label
+{
+    margin-left: 45%;
+}
+
 .question-container-div
 {
     border: 1px solid black;
     margin-bottom: 2%;
-    
 }
 
 .question-elements-div

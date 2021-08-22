@@ -156,6 +156,14 @@ const startGame = (e) =>
     // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
 
+    // Creates a label for the player score
+    const playerScoreLabel = document.createElement("label");
+    playerScoreLabel.innerText = "Score: " + playerScore + "/" + inputText.value;
+    playerScoreLabel.setAttribute("id", "score-label");
+
+    // Add the score label into the main container div
+    containerDiv.append(playerScoreLabel);
+
     for (let question of questions)
     {
         // Creating a div for the question container
@@ -221,6 +229,7 @@ const startGame = (e) =>
 
         // Adding the question container div into the main container div of the page
         containerDiv.append(questionContainerDiv);
+        
     }
 
 };
