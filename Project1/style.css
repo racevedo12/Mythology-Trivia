@@ -102,7 +102,7 @@ body
 
 .question-label
 {
-    margin-left: 37%;
+    margin-left: 38%;
     margin-right: 8%;
     padding-top: 3%;
     padding-bottom: 5%;
@@ -114,4 +114,9 @@ body
     max-width: 15%;
     margin-left: 15%;
     margin-bottom: 5%;
+}
+
+.correct-answer
+{
+    background-color: rgb(52, 241, 52);
 }

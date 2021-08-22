@@ -127,6 +127,18 @@ const popupLayout = () =>
 
 const checkAnswer = (e) =>
 {
+    const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
+    const correctAnswer = answerButtons[2];
+
+    console.log(answerButtons)
+
+    for (button of answerButtons)
+    {
+        button.setAttribute("disabled", "true");
+    }
+
+    correctAnswer.classList.toggle("correct-answer");
+
     console.log(e.currentTarget.innerText);
 }
 
@@ -207,8 +219,6 @@ const startGame = (e) =>
         // Adding the question container div into the main container div of the page
         containerDiv.append(questionContainerDiv);
     }
-    
-
 
 };
 
