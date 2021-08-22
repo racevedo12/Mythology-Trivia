@@ -35,7 +35,6 @@ body
     border: black 1px solid;
     margin-top: 8%;
     background-color: aliceblue;
-    /* max-width: fit-content; */
 }
 
 .popup-color
@@ -89,8 +88,6 @@ body
 
 .question-elements-div
 {
-    /* margin-top: 1%;
-    margin-left: 3%; */
     display: flex;
     flex-wrap: wrap;
 }

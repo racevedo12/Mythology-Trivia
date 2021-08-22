@@ -138,7 +138,7 @@ const checkAnswer = (e) =>
         {
             button.classList.toggle("wrong-answers")
         }
-        
+
         button.setAttribute("disabled", "true");
         
     }
@@ -152,9 +152,6 @@ const checkAnswer = (e) =>
 const startGame = (e) =>
 {
     popupLayout();
-
-    // Testing
-    // console.log(questions)
 
     // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
@@ -199,7 +196,7 @@ const startGame = (e) =>
         answer2Button.innerText = theIncorrectAnswers[0];
         answer2Button.addEventListener("click", checkAnswer);
 
-        // Third Answer Choice
+        // Third Answer Choice which is the correct answer
         const correctAnswerButton = document.createElement("button");
         correctAnswerButton.setAttribute("class", "answers-buttons");
         correctAnswerButton.innerText = theCorrectAnswer;
