@@ -134,7 +134,13 @@ const checkAnswer = (e) =>
 
     for (button of answerButtons)
     {
+        if (button.innerText !== correctAnswer.innerText)
+        {
+            button.classList.toggle("wrong-answers")
+        }
+        
         button.setAttribute("disabled", "true");
+        
     }
 
     correctAnswer.classList.toggle("correct-answer");
