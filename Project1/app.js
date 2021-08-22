@@ -3,6 +3,7 @@ const inputDiv = document.querySelector(".input-div");
 const inputText = document.querySelector("#input-text");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
+let playerScore = 0;
 
 // Variables for the API
 const baseURL = "https://opentdb.com/api.php?";
@@ -124,6 +125,11 @@ const popupLayout = () =>
 // Test
 // inputButton.parentElement.getElementsByClassName()
 
+const checkAnswer = (e) =>
+{
+    console.log(e.currentTarget.innerText);
+}
+
 // Start the Game
 const startGame = (e) =>
 {
@@ -167,28 +173,32 @@ const startGame = (e) =>
         const answer1Button = document.createElement("button");
         answer1Button.setAttribute("class", "answers-buttons");
         answer1Button.innerText = theIncorrectAnswers[2];
+        answer1Button.addEventListener("click", checkAnswer);
 
         // Second Answer Choice
         const answer2Button = document.createElement("button");
         answer2Button.setAttribute("class", "answers-buttons");
         answer2Button.innerText = theIncorrectAnswers[0];
+        answer2Button.addEventListener("click", checkAnswer);
 
         // Third Answer Choice
-        const answer3Button = document.createElement("button");
-        answer3Button.setAttribute("class", "answers-buttons");
-        answer3Button.innerText = theCorrectAnswer;
+        const correctAnswerButton = document.createElement("button");
+        correctAnswerButton.setAttribute("class", "answers-buttons");
+        correctAnswerButton.innerText = theCorrectAnswer;
+        correctAnswerButton.addEventListener("click", checkAnswer);
 
         // Fourth Answer Choice
         const answer4Button = document.createElement("button");
         answer4Button.setAttribute("class", "answers-buttons");
         answer4Button.innerText = theIncorrectAnswers[1];
+        answer4Button.addEventListener("click", checkAnswer);
 
         // Adding all the elements into the question elements div
         questionElementsDiv.append(questionNumLabel);
         questionElementsDiv.append(questionLabel);
         questionElementsDiv.append(answer1Button);
         questionElementsDiv.append(answer2Button);
-        questionElementsDiv.append(answer3Button);
+        questionElementsDiv.append(correctAnswerButton);
         questionElementsDiv.append(answer4Button);
 
         // Adding the question elements div into the question container div
