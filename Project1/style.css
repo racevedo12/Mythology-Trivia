@@ -77,3 +77,9 @@ body
     position: relative;
     right: 14%;
 }
+
+.question-container-div
+{
+    border: 1px solid black;
+    margin-bottom: 2%;
+}
