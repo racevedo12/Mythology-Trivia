@@ -335,13 +335,31 @@ const gameResult = () =>
             // Removes the old score label
             document.querySelector("#score-label").remove();
 
+            // Creates the result div
+            const resultDiv = document.createElement("div");
+            resultDiv.setAttribute("class", "result-div");
+
+            // Creates the first p tag for the score
+            const firstScoreParagraph = document.createElement("p");
+            firstScoreParagraph.innerText = "Your score was: ";
+
+            // Creates the second p tag for the score
+            const secondScoreParagraph = document.createElement("p");
+            secondScoreParagraph.innerText = playerScore + "/" + inputText.value;
+
+            // Add elements into the result div
+            resultDiv.append(firstScoreParagraph);
+            resultDiv.append(secondScoreParagraph);
+
+            // Add the result div into the container div
+            containerDiv.append(resultDiv);
+
         }, 20000);
         
     }
 
-    // Creates the result div
-    const resultDiv = document.createElement("div");
-    resultDiv.setAttribute("class", "result-div");
+    
+
 
 };
 
