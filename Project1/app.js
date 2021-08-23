@@ -1,3 +1,8 @@
+// Notes
+// Changed the layout idea of the start of the trivia from the wire frame into multiple divs
+// Instead of showing the score under each div and the correct answer, change the colors of the answers
+// And show the score at the top of the first question
+
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
 const inputText = document.querySelector("#input-text");
@@ -156,12 +161,6 @@ const checkAnswer = (e) =>
     {
         playerScore++;
         theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
-        alert("Correct!")
-    }
-
-    else
-    {
-        alert("Incorrect!")
     }
 
     gameResult();
@@ -206,7 +205,10 @@ const gameResult = () =>
             }
 
             // Removes the last question div element that remains
-            allQuestionsDiv[0].remove();
+            if (allQuestionsDiv.length === 1)
+            {
+                allQuestionsDiv[0].remove();
+            }
 
             // Removes the old score label
             document.querySelector("#score-label").remove();
@@ -258,6 +260,36 @@ const startGame = (e) =>
         questionLabel.setAttribute("class", "question-label");
         questionLabel.innerText = theQuestion;
         
+
+        // Random places for answers
+
+        // Adds the correct answer first into the all answers array
+        const allAnswers = [theCorrectAnswer];
+
+        // loops through the incorrect answers array and add each incorrect anwer into the all answers array
+        theIncorrectAnswers.forEach(wrongAnswer => 
+        {
+            allAnswers.push(wrongAnswer);
+        });
+        
+        // Create an empty random answers array to hold all the answers in a random place
+        const randomAnswers = [];
+
+        // For loop to get the answers into the randomAnwers array
+        // Like that we can get the answers into random places instead of just hard coding the place of the answers
+        for (let i = 0; i <= allAnswers.length; i++)
+        {
+            // Creates a random number for the index of the answers
+            let randomNum = Math.floor( Math.random() * allAnswers.length );
+
+            // Checks if the random answers array already has that random answer
+            // If it does not have it, then add it into the array
+            if (!randomAnswers.includes(allAnswers[randomNum]))
+            {
+                randomAnswers.push(allAnswers[randomNum]);
+            }
+        }
+
         // Creating buttons for different answers 
 
         // First Answer Choice
@@ -275,6 +307,7 @@ const startGame = (e) =>
         // Third Answer Choice which is the correct answer
         const correctAnswerButton = document.createElement("button");
         correctAnswerButton.setAttribute("class", "answers-buttons");
+        correctAnswerButton.setAttribute("id", "right-answer")
         correctAnswerButton.innerText = theCorrectAnswer;
         correctAnswerButton.addEventListener("click", checkAnswer);
 
