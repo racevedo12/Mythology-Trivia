@@ -129,8 +129,7 @@ const checkAnswer = (e) =>
 {
     const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
     const correctAnswer = answerButtons[2];
-
-    console.log(answerButtons)
+    const theScoreTag = document.querySelector("#score-label");
 
     for (button of answerButtons)
     {
@@ -140,18 +139,60 @@ const checkAnswer = (e) =>
         }
 
         button.setAttribute("disabled", "true");
-        
+    }
+
+    if (e.currentTarget.innerText === correctAnswer.innerText)
+    {
+        playerScore++;
     }
 
     correctAnswer.classList.toggle("correct-answer");
+    theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
 
-    console.log(e.currentTarget.innerText);
-}
+    gameResult();
+    
+};
+
+
+const gameResult = () =>
+{
+    const allQuestionsDiv = document.getElementsByClassName("question-container-div");
+
+    const allAnswerButtons = document.getElementsByClassName("answers-buttons");
+
+    const disabledButtons = [];
+
+    
+
+    for(let button of allAnswerButtons)
+    {
+        if (button.getAttribute("disabled") === "true")
+        {
+            disabledButtons.push(button);
+        }
+    }
+
+    console.log(allAnswerButtons.length)
+    console.log(disabledButtons.length)
+
+    if (allAnswerButtons.length === disabledButtons.length)
+    {
+        for (let questionDiv of allQuestionsDiv)
+        {
+            questionDiv.remove();
+        }
+
+        allQuestionsDiv[0].remove();
+    }
+
+};
 
 // Start the Game
 const startGame = (e) =>
 {
     popupLayout();
+
+    // let keepPlaying = true;
 
     // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
@@ -231,6 +272,29 @@ const startGame = (e) =>
         containerDiv.append(questionContainerDiv);
         
     }
+
+    // const theButtons = document.getElementsByClassName("answers-buttons");
+    // console.log(theButtons[0].getAttribute("disabled"))
+
+    // const buttonsDisabled = [];
+
+    // while (keepPlaying)
+    // {
+    //     for (let button of theButtons)
+    //     {
+    //         if (button.getAttribute("disabled") === "true")
+    //         {
+    //             buttonsDisabled.push(button);
+    //         }
+    //     }
+
+    //     if (buttonsDisabled.length === theButtons.length)
+    //     {
+    //         keepPlaying = false;
+    //     }
+    // }
+
+    // e.currentTarget.remove();
 
 };
 
