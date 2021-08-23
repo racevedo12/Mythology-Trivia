@@ -344,7 +344,7 @@ const gameResult = () =>
             // Creates the winner h1 to let user know if they won or not
             const winnerH1 = document.createElement("h1");
             
-            let minimumWinScore = Math.floor(inputText.value / 2);
+            const minimumWinScore = Math.floor(inputText.value / 2);
 
             if (playerScore >= minimumWinScore)
             {
@@ -353,21 +353,18 @@ const gameResult = () =>
 
             else
             {
-                winnerH1.innerText = "YOU WON!";
+                winnerH1.innerText = "YOU LOST!";
             }
 
             // Add elements into the result div
             resultDiv.append(firstScoreH2);
             resultDiv.append(secondScoreH2);
-            // resultDiv.append(winnerH1);
+            resultDiv.append(winnerH1);
 
             // Add the result div into the container div
             containerDiv.append(resultDiv);
 
-        }, 1000);
-
-        // 20 seconds
-        // 20000
+        }, 20000);
         
     }
 
