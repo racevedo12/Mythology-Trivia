@@ -153,17 +153,19 @@ const checkAnswer = (e) =>
     
 };
 
-
 const gameResult = () =>
 {
+    // Gets all the questions divs containers
     const allQuestionsDiv = document.getElementsByClassName("question-container-div");
 
+    // Gets all the answer buttons
     const allAnswerButtons = document.getElementsByClassName("answers-buttons");
 
+    // This empty array is to hold all the buttons that are disabled
     const disabledButtons = [];
 
-    
-
+    // Checks if all the buttons are disabled
+    // if they are, push it into the disabled buttons array
     for(let button of allAnswerButtons)
     {
         if (button.getAttribute("disabled") === "true")
@@ -175,14 +177,26 @@ const gameResult = () =>
     console.log(allAnswerButtons.length)
     console.log(disabledButtons.length)
 
+    // Checks if all the questions have been answered by checking if all the buttons from each question are disabled
     if (allAnswerButtons.length === disabledButtons.length)
     {
-        for (let questionDiv of allQuestionsDiv)
-        {
-            questionDiv.remove();
-        }
+        // Tell the users that they have 20 seconds to review the test
+        alert("You have 20 seconds to review the test before it gets deleted!");
 
-        allQuestionsDiv[0].remove();
+        // Sets a timeout to run this callback function after 20 seconds
+        // This lets the user review the test that they took.
+        const theTestReview = setTimeout (() =>
+        {
+            // Removes all the questions div
+            for (let questionDiv of allQuestionsDiv)
+            {
+                questionDiv.remove();
+            }
+
+            // Removes the last question div element that remains
+            allQuestionsDiv[0].remove();
+        }, 20000);
+        
     }
 
 };
@@ -272,29 +286,6 @@ const startGame = (e) =>
         containerDiv.append(questionContainerDiv);
         
     }
-
-    // const theButtons = document.getElementsByClassName("answers-buttons");
-    // console.log(theButtons[0].getAttribute("disabled"))
-
-    // const buttonsDisabled = [];
-
-    // while (keepPlaying)
-    // {
-    //     for (let button of theButtons)
-    //     {
-    //         if (button.getAttribute("disabled") === "true")
-    //         {
-    //             buttonsDisabled.push(button);
-    //         }
-    //     }
-
-    //     if (buttonsDisabled.length === theButtons.length)
-    //     {
-    //         keepPlaying = false;
-    //     }
-    // }
-
-    // e.currentTarget.remove();
 
 };
 
