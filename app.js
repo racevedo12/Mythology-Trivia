@@ -292,7 +292,7 @@ const checkAnswer = (e) =>
 const gameResult = () =>
 {
     // Gets all the questions divs containers
-    const allQuestionsDiv = document.getElementsByClassName("question-container-div");
+    const allQuestionsDiv = document.querySelectorAll(".question-container-div");
 
     // Gets all the answer buttons
     const allAnswerButtons = document.getElementsByClassName("answers-buttons");
@@ -321,15 +321,9 @@ const gameResult = () =>
         const theTestReview = setTimeout (() =>
         {
             // Removes all the questions div
-            for (let questionDiv of allQuestionsDiv)
+            for(let div of allQuestionsDiv)
             {
-                questionDiv.remove();
-            }
-
-            // Removes the last question div element that remains
-            if (allQuestionsDiv.length === 1)
-            {
-                allQuestionsDiv[0].remove();
+                div.remove();
             }
 
             // Removes the old score label
@@ -339,22 +333,41 @@ const gameResult = () =>
             const resultDiv = document.createElement("div");
             resultDiv.setAttribute("class", "result-div");
 
-            // Creates the first p tag for the score
+            // Creates the first h2 tag for the score
             const firstScoreH2 = document.createElement("h2");
             firstScoreH2.innerText = "Your score was: ";
 
-            // Creates the second p tag for the score
+            // Creates the second h2 tag for the score
             const secondScoreH2 = document.createElement("h2");
             secondScoreH2.innerText = playerScore + "/" + inputText.value;
+
+            // Creates the winner h1 to let user know if they won or not
+            const winnerH1 = document.createElement("h1");
+            
+            let minimumWinScore = Math.floor(inputText.value / 2);
+
+            if (playerScore >= minimumWinScore)
+            {
+                winnerH1.innerText = "YOU WON!";
+            }
+
+            else
+            {
+                winnerH1.innerText = "YOU WON!";
+            }
 
             // Add elements into the result div
             resultDiv.append(firstScoreH2);
             resultDiv.append(secondScoreH2);
+            // resultDiv.append(winnerH1);
 
             // Add the result div into the container div
             containerDiv.append(resultDiv);
 
-        }, 20000);
+        }, 1000);
+
+        // 20 seconds
+        // 20000
         
     }
 
