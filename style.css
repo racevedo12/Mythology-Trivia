@@ -129,3 +129,8 @@ body
     background-color: rgb(235, 107, 107);
     font-weight: bold;
 }
+
+.result-div
+{
+    text-align: center;
+}

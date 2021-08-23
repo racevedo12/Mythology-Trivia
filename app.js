@@ -340,16 +340,16 @@ const gameResult = () =>
             resultDiv.setAttribute("class", "result-div");
 
             // Creates the first p tag for the score
-            const firstScoreParagraph = document.createElement("p");
-            firstScoreParagraph.innerText = "Your score was: ";
+            const firstScoreH2 = document.createElement("h2");
+            firstScoreH2.innerText = "Your score was: ";
 
             // Creates the second p tag for the score
-            const secondScoreParagraph = document.createElement("p");
-            secondScoreParagraph.innerText = playerScore + "/" + inputText.value;
+            const secondScoreH2 = document.createElement("h2");
+            secondScoreH2.innerText = playerScore + "/" + inputText.value;
 
             // Add elements into the result div
-            resultDiv.append(firstScoreParagraph);
-            resultDiv.append(secondScoreParagraph);
+            resultDiv.append(firstScoreH2);
+            resultDiv.append(secondScoreH2);
 
             // Add the result div into the container div
             containerDiv.append(resultDiv);
