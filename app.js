@@ -2,7 +2,8 @@
 // Changed the layout idea of the start of the trivia from the wire frame into multiple divs DONE
 // Instead of showing the score under each div and the correct answer, change the colors of the answers DONE
 // And show the score at the top of the first question DONE
-// Random places for answers instead of hard coding positions of each one of them
+// Random places for answers instead of hard coding positions of each one of them DONE
+// Add the last result div to let user know if they won or not
 
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
@@ -138,7 +139,7 @@ const checkAnswer = (e) =>
     const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
 
     // Gets the correct answer
-    const correctAnswer = answerButtons[2];
+    const correctAnswer = document.querySelector("#right-answer");
 
     // Gets the score label
     const theScoreTag = document.querySelector("#score-label");
@@ -171,7 +172,7 @@ const checkAnswer = (e) =>
     gameResult();
 };
 
-// Display the result of the trivia test
+// Display the result of the trivia test and tell user if they won or not
 const gameResult = () =>
 {
     // Gets all the questions divs containers
@@ -191,7 +192,7 @@ const gameResult = () =>
         {
             disabledButtons.push(button);
         }
-    }
+    };
 
     // Checks if all the questions have been answered by checking if all the buttons from each question are disabled
     if (allAnswerButtons.length === disabledButtons.length)
@@ -217,6 +218,7 @@ const gameResult = () =>
 
             // Removes the old score label
             document.querySelector("#score-label").remove();
+
         }, 20000);
         
     }
@@ -226,6 +228,7 @@ const gameResult = () =>
 // Start the Game
 const startGame = (e) =>
 {
+    // Invokes the popup layout function
     popupLayout();
 
     // Removes the preview div of questions
@@ -265,62 +268,46 @@ const startGame = (e) =>
         questionLabel.setAttribute("class", "question-label");
         questionLabel.innerText = theQuestion;
         
-
         // Random places for answers
-        // WIP (Work in Progress)
 
-        // // Adds the correct answer first into the all answers array
-        // const allAnswers = [theCorrectAnswer];
+        console.log(theCorrectAnswer)
 
-        // // loops through the incorrect answers array and add each incorrect anwer into the all answers array
-        // theIncorrectAnswers.forEach(wrongAnswer => 
-        // {
-        //     allAnswers.push(wrongAnswer);
-        // });
+        // Adds the correct answer first into the all answers array
+        const allAnswers = [theCorrectAnswer];
+
+        // loops through the incorrect answers array and add each incorrect answer into the all answers array
+        theIncorrectAnswers.forEach(wrongAnswer => 
+        {
+            allAnswers.push(wrongAnswer);
+        });
         
-        // // Create an empty random answers array to hold all the answers in a random place
-        // const randomAnswers = [];
-
-        // // For loop to get the answers into the randomAnwers array
-        // // Like that we can get the answers into random places instead of just hard coding the place of the answers
-        // for (let i = 0; i <= allAnswers.length; i++)
-        // {
-        //     // Creates a random number for the index of the answers
-        //     let randomNum = Math.floor( Math.random() * allAnswers.length );
-
-        //     // Checks if the random answers array already has that random answer
-        //     // If it does not have it, then add it into the array
-        //     if (!randomAnswers.includes(allAnswers[randomNum]))
-        //     {
-        //         randomAnswers.push(allAnswers[randomNum]);
-        //     }
-        // }
+        // Sorts the array to randomize the answers positions
+        allAnswers.sort();
 
         // Creating buttons for different answers 
 
         // First Answer Choice
         const answer1Button = document.createElement("button");
         answer1Button.setAttribute("class", "answers-buttons");
-        answer1Button.innerText = theIncorrectAnswers[2];
+        answer1Button.innerText = allAnswers[2];
         answer1Button.addEventListener("click", checkAnswer);
 
         // Second Answer Choice
         const answer2Button = document.createElement("button");
         answer2Button.setAttribute("class", "answers-buttons");
-        answer2Button.innerText = theIncorrectAnswers[0];
+        answer2Button.innerText = allAnswers[0];
         answer2Button.addEventListener("click", checkAnswer);
 
-        // Third Answer Choice which is the correct answer
-        const correctAnswerButton = document.createElement("button");
-        correctAnswerButton.setAttribute("class", "answers-buttons");
-        correctAnswerButton.setAttribute("id", "right-answer")
-        correctAnswerButton.innerText = theCorrectAnswer;
-        correctAnswerButton.addEventListener("click", checkAnswer);
+        // Third Answer Choice
+        const answer3Button = document.createElement("button");
+        answer3Button.setAttribute("class", "answers-buttons");
+        answer3Button.innerText = allAnswers[3];
+        answer3Button.addEventListener("click", checkAnswer);
 
         // Fourth Answer Choice
         const answer4Button = document.createElement("button");
         answer4Button.setAttribute("class", "answers-buttons");
-        answer4Button.innerText = theIncorrectAnswers[1];
+        answer4Button.innerText = allAnswers[1];
         answer4Button.addEventListener("click", checkAnswer);
 
         // Adding all the elements into the question elements div
@@ -328,16 +315,29 @@ const startGame = (e) =>
         questionElementsDiv.append(questionLabel);
         questionElementsDiv.append(answer1Button);
         questionElementsDiv.append(answer2Button);
-        questionElementsDiv.append(correctAnswerButton);
+        questionElementsDiv.append(answer3Button);
         questionElementsDiv.append(answer4Button);
+
+        // Create an array to hold all the buttons
+        const allAnswerButtons = [answer1Button, answer2Button, answer3Button, answer4Button];
+
+        // Iterate through the array of all answer buttons and check which button is the correct choice
+        for(let answer of allAnswerButtons)
+        {
+            if (answer.innerText === theCorrectAnswer)
+            {
+                // Assign the id of right-answer if the button text is the same as the correct answer
+                // So we can use it later to check the answer
+                answer.setAttribute("id", "right-answer");
+            }
+        }
 
         // Adding the question elements div into the question container div
         questionContainerDiv.append(questionElementsDiv);
 
         // Adding the question container div into the main container div of the page
         containerDiv.append(questionContainerDiv);
-        
-    }
+    };
 
 };
 
