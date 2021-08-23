@@ -3,7 +3,7 @@
 // Instead of showing the score under each div and the correct answer, change the colors of the answers DONE
 // And show the score at the top of the first question DONE
 // Random places for answers instead of hard coding positions of each one of them DONE
-// Add the last result div to let user know if they won or not
+// Add the last result div to let user know if they won or not DONE
 
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
@@ -149,6 +149,7 @@ const startGame = (e) =>
     // Add the score label into the main container div
     containerDiv.append(playerScoreLabel);
 
+    // Loop where the magic happens, creates all the questions divs with their elements
     for (let question of questions)
     {
         // Creating a div for the question container
@@ -175,9 +176,7 @@ const startGame = (e) =>
         questionLabel.setAttribute("class", "question-label");
         questionLabel.innerText = theQuestion;
         
-        // Random places for answers
-
-        console.log(theCorrectAnswer)
+        // ----------Random places for answers----------
 
         // Adds the correct answer first into the all answers array
         const allAnswers = [theCorrectAnswer];
@@ -191,7 +190,7 @@ const startGame = (e) =>
         // Sorts the array to randomize the answers positions
         allAnswers.sort();
 
-        // Creating buttons for different answers 
+        // ----------Creating buttons for different answers----------
 
         // First Answer Choice
         const answer1Button = document.createElement("button");
@@ -247,7 +246,7 @@ const startGame = (e) =>
     };
 
 };
-// containerDiv.parentElement.querySelector
+
 // Checks the answer and disable the buttons after cliclking an answer
 const checkAnswer = (e) =>
 {
@@ -324,7 +323,7 @@ const gameResult = () =>
             for(let div of allQuestionsDiv)
             {
                 div.remove();
-            }
+            };
 
             // Removes the old score label
             document.querySelector("#score-label").remove();
@@ -347,7 +346,7 @@ const gameResult = () =>
             // Creates the play again button
             const playAgainButton = document.createElement("button");
             playAgainButton.innerText = "Click Here To Play Again";
-            // playAgainButton.addEventListener("click", playAgain);
+            playAgainButton.addEventListener("click", playAgain);
 
             // This is the minimum score that the user needs to have to win
             // It's the half of the total number of questions
@@ -378,8 +377,23 @@ const gameResult = () =>
         
     }
 
-    
+};
 
+const playAgain = () =>
+{
+    // Removes the result div to leave everything ready for a new game
+    const lastResultDiv = document.querySelector(".result-div");
+    lastResultDiv.remove();
+
+    // Resets the value of the input text to an empty string
+    inputText.value = "";
+
+    // Checks if the input div is hidden right now
+    // If it is hidden, then make it appear again to play again
+    if (inputDiv.classList.contains("dissapear"))
+    {
+        inputDiv.classList.toggle("dissapear");
+    }
 
 };
 
