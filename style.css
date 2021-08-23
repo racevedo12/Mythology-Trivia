@@ -65,7 +65,7 @@ body
 
 .preview-answers-label
 {
-    padding-right: 3%;
+    padding-right: 5%;
 }
 
 #preview-button
@@ -76,7 +76,7 @@ body
     margin-bottom: 3%;
     
     position: relative;
-    right: 14%;
+    right: 10%;
 }
 
 #score-label

@@ -26,6 +26,21 @@ const type = "type=multiple";
 // An array to hold all the questions objects
 const questions = [];
 
+// Change color of backgound, hide the input div and make it look like a popup window
+const popupLayout = () =>
+{
+    // Checks if the input div has the class dissapear, if it doesn't have it, then apply it to it
+    // This makes the input div inacessible when you are reviewing questions and taking the test
+    // Just a safety measure so they cannot keep creating new preview Questions divs
+    if (!inputDiv.classList.contains("dissapear"))
+    {
+        inputDiv.classList.toggle("dissapear");
+    }
+    
+    // Changes the background color of the body of the page
+    document.body.classList.toggle("popup-color");
+};
+
 // Makes a preview window for user to review questions with answers included
 const previewQuestions = () =>
 {
@@ -115,114 +130,6 @@ const previewQuestions = () =>
 
     });
     
-};
-
-// Change color of backgound, hide the input div and make it look like a popup window
-const popupLayout = () =>
-{
-    // Checks if the input div has the class dissapear, if it doesn't have it, then apply it to it
-    // This makes the input div inacessible when you are reviewing questions and taking the test
-    // Just a safety measure so they cannot keep creating new preview Questions divs
-    if (!inputDiv.classList.contains("dissapear"))
-    {
-        inputDiv.classList.toggle("dissapear");
-    }
-    
-    // Changes the background color of the body of the page
-    document.body.classList.toggle("popup-color");
-};
-
-// Checks the answer and disable the buttons after cliclking an answer
-const checkAnswer = (e) =>
-{
-    // Gets all the answer buttons
-    const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
-
-    // Gets the correct answer
-    const correctAnswer = document.querySelector("#right-answer");
-
-    // Gets the score label
-    const theScoreTag = document.querySelector("#score-label");
-
-    // Changes the color of the buttons to red if the answers are incorrect
-    // And disables all buttons so users cannot click on any answer after they chose one already
-    for (button of answerButtons)
-    {
-        if (button.innerText !== correctAnswer.innerText)
-        {
-            button.classList.toggle("wrong-answers")
-        }
-
-        // Disable the button
-        button.setAttribute("disabled", "true");
-    }
-
-    // Changes the color of the correct answer to Green so they can know which was the correct answer
-    correctAnswer.classList.toggle("correct-answer");
-
-    // If the button that the user clicked is the correct answer then give them a +1 to the score
-    // Also tell them if they got the correct answer or not
-    if (e.currentTarget.innerText === correctAnswer.innerText)
-    {
-        playerScore++;
-        theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
-    }
-
-    // Invokes the game result function
-    gameResult();
-};
-
-// Display the result of the trivia test and tell user if they won or not
-const gameResult = () =>
-{
-    // Gets all the questions divs containers
-    const allQuestionsDiv = document.getElementsByClassName("question-container-div");
-
-    // Gets all the answer buttons
-    const allAnswerButtons = document.getElementsByClassName("answers-buttons");
-
-    // This empty array is to hold all the buttons that are disabled
-    const disabledButtons = [];
-
-    // Checks if all the buttons are disabled
-    // if they are, push it into the disabled buttons array
-    for(let button of allAnswerButtons)
-    {
-        if (button.getAttribute("disabled") === "true")
-        {
-            disabledButtons.push(button);
-        }
-    };
-
-    // Checks if all the questions have been answered by checking if all the buttons from each question are disabled
-    if (allAnswerButtons.length === disabledButtons.length)
-    {
-        // Tell the users that they have 20 seconds to review the test
-        alert("You have 20 seconds to review the test before it gets deleted!");
-
-        // Sets a timeout to run this callback function after 20 seconds
-        // This lets the user review the test that they took.
-        const theTestReview = setTimeout (() =>
-        {
-            // Removes all the questions div
-            for (let questionDiv of allQuestionsDiv)
-            {
-                questionDiv.remove();
-            }
-
-            // Removes the last question div element that remains
-            if (allQuestionsDiv.length === 1)
-            {
-                allQuestionsDiv[0].remove();
-            }
-
-            // Removes the old score label
-            document.querySelector("#score-label").remove();
-
-        }, 20000);
-        
-    }
-
 };
 
 // Start the Game
@@ -338,6 +245,103 @@ const startGame = (e) =>
         // Adding the question container div into the main container div of the page
         containerDiv.append(questionContainerDiv);
     };
+
+};
+
+// Checks the answer and disable the buttons after cliclking an answer
+const checkAnswer = (e) =>
+{
+    // Gets all the answer buttons
+    const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
+
+    // Gets the correct answer
+    const correctAnswer = document.querySelector("#right-answer");
+
+    // Gets the score label
+    const theScoreTag = document.querySelector("#score-label");
+
+    // Changes the color of the buttons to red if the answers are incorrect
+    // And disables all buttons so users cannot click on any answer after they chose one already
+    for (button of answerButtons)
+    {
+        if (button.innerText !== correctAnswer.innerText)
+        {
+            button.classList.toggle("wrong-answers")
+        }
+
+        // Disable the button
+        button.setAttribute("disabled", "true");
+    }
+
+    // Changes the color of the correct answer to Green so they can know which was the correct answer
+    correctAnswer.classList.toggle("correct-answer");
+
+    // If the button that the user clicked is the correct answer then give them a +1 to the score
+    // Also tell them if they got the correct answer or not
+    if (e.currentTarget.innerText === correctAnswer.innerText)
+    {
+        playerScore++;
+        theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
+    }
+
+    // Invokes the game result function
+    gameResult();
+};
+
+// Display the result of the trivia test and tell user if they won or not
+const gameResult = () =>
+{
+    // Gets all the questions divs containers
+    const allQuestionsDiv = document.getElementsByClassName("question-container-div");
+
+    // Gets all the answer buttons
+    const allAnswerButtons = document.getElementsByClassName("answers-buttons");
+
+    // This empty array is to hold all the buttons that are disabled
+    const disabledButtons = [];
+
+    // Checks if all the buttons are disabled
+    // if they are, push it into the disabled buttons array
+    for(let button of allAnswerButtons)
+    {
+        if (button.getAttribute("disabled") === "true")
+        {
+            disabledButtons.push(button);
+        }
+    };
+
+    // Checks if all the questions have been answered by checking if all the buttons from each question are disabled
+    if (allAnswerButtons.length === disabledButtons.length)
+    {
+        // Tell the users that they have 20 seconds to review the test
+        alert("You have 20 seconds to review the test before it gets deleted!");
+
+        // Sets a timeout to run this callback function after 20 seconds
+        // This lets the user review the test that they took.
+        const theTestReview = setTimeout (() =>
+        {
+            // Removes all the questions div
+            for (let questionDiv of allQuestionsDiv)
+            {
+                questionDiv.remove();
+            }
+
+            // Removes the last question div element that remains
+            if (allQuestionsDiv.length === 1)
+            {
+                allQuestionsDiv[0].remove();
+            }
+
+            // Removes the old score label
+            document.querySelector("#score-label").remove();
+
+        }, 20000);
+        
+    }
+
+    // Creates the result div
+    const resultDiv = document.createElement("div");
+    resultDiv.setAttribute("class", "result-div");
 
 };
 
