@@ -1,16 +1,21 @@
 // Notes
-// Changed the layout idea of the start of the trivia from the wire frame into multiple divs
-// Instead of showing the score under each div and the correct answer, change the colors of the answers
-// And show the score at the top of the first question
+// Changed the layout idea of the start of the trivia from the wire frame into multiple divs DONE
+// Instead of showing the score under each div and the correct answer, change the colors of the answers DONE
+// And show the score at the top of the first question DONE
+// Random places for answers instead of hard coding positions of each one of them
 
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
 const inputText = document.querySelector("#input-text");
 const inputButton = document.querySelector("#input-button");
 const containerDiv = document.querySelector(".container");
+
+// Assign a variable to keep the user score
 let playerScore = 0;
 
 // Variables for the API
+// this is from the website called open trivia database
+// Here is the website: https://opentdb.com/
 const baseURL = "https://opentdb.com/api.php?";
 const ampersand = "&";
 const amount = "amount=";
@@ -87,7 +92,6 @@ const previewQuestions = () =>
 
             // Adding 1 each iteration of the loop 
             numOfQuestion++;
-
         }
         
         // Creating a button for the preview div in order to start the game 
@@ -163,6 +167,7 @@ const checkAnswer = (e) =>
         theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
     }
 
+    // Invokes the game result function
     gameResult();
 };
 
@@ -262,33 +267,34 @@ const startGame = (e) =>
         
 
         // Random places for answers
+        // WIP (Work in Progress)
 
-        // Adds the correct answer first into the all answers array
-        const allAnswers = [theCorrectAnswer];
+        // // Adds the correct answer first into the all answers array
+        // const allAnswers = [theCorrectAnswer];
 
-        // loops through the incorrect answers array and add each incorrect anwer into the all answers array
-        theIncorrectAnswers.forEach(wrongAnswer => 
-        {
-            allAnswers.push(wrongAnswer);
-        });
+        // // loops through the incorrect answers array and add each incorrect anwer into the all answers array
+        // theIncorrectAnswers.forEach(wrongAnswer => 
+        // {
+        //     allAnswers.push(wrongAnswer);
+        // });
         
-        // Create an empty random answers array to hold all the answers in a random place
-        const randomAnswers = [];
+        // // Create an empty random answers array to hold all the answers in a random place
+        // const randomAnswers = [];
 
-        // For loop to get the answers into the randomAnwers array
-        // Like that we can get the answers into random places instead of just hard coding the place of the answers
-        for (let i = 0; i <= allAnswers.length; i++)
-        {
-            // Creates a random number for the index of the answers
-            let randomNum = Math.floor( Math.random() * allAnswers.length );
+        // // For loop to get the answers into the randomAnwers array
+        // // Like that we can get the answers into random places instead of just hard coding the place of the answers
+        // for (let i = 0; i <= allAnswers.length; i++)
+        // {
+        //     // Creates a random number for the index of the answers
+        //     let randomNum = Math.floor( Math.random() * allAnswers.length );
 
-            // Checks if the random answers array already has that random answer
-            // If it does not have it, then add it into the array
-            if (!randomAnswers.includes(allAnswers[randomNum]))
-            {
-                randomAnswers.push(allAnswers[randomNum]);
-            }
-        }
+        //     // Checks if the random answers array already has that random answer
+        //     // If it does not have it, then add it into the array
+        //     if (!randomAnswers.includes(allAnswers[randomNum]))
+        //     {
+        //         randomAnswers.push(allAnswers[randomNum]);
+        //     }
+        // }
 
         // Creating buttons for different answers 
 
