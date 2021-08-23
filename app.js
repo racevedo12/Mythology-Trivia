@@ -346,6 +346,7 @@ const gameResult = () =>
             // Creates the play again button
             const playAgainButton = document.createElement("button");
             playAgainButton.innerText = "Click Here To Play Again";
+            // playAgainButton.setAttribute("type", "submit");
             playAgainButton.addEventListener("click", playAgain);
 
             // This is the minimum score that the user needs to have to win
@@ -381,20 +382,11 @@ const gameResult = () =>
 
 const playAgain = () =>
 {
-    // Removes the result div to leave everything ready for a new game
-    const lastResultDiv = document.querySelector(".result-div");
-    lastResultDiv.remove();
-
-    // Resets the value of the input text to an empty string
-    inputText.value = "";
-
-    // Checks if the input div is hidden right now
-    // If it is hidden, then make it appear again to play again
-    if (inputDiv.classList.contains("dissapear"))
-    {
-        inputDiv.classList.toggle("dissapear");
-    }
-
+    // Found this method in MDN by googling refresh page MDN
+    // This is the site https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+    
+    // Refreshes the page in order to play again with brand new data
+    location.reload()
 };
 
 inputButton.addEventListener("click", previewQuestions);
