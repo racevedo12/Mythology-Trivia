@@ -201,6 +201,9 @@ const gameResult = () =>
 
             // Removes the last question div element that remains
             allQuestionsDiv[0].remove();
+
+            // Removes the old score label
+            document.querySelector("#score-label").remove();
         }, 20000);
         
     }
