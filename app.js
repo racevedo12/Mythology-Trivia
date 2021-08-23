@@ -247,15 +247,15 @@ const startGame = (e) =>
     };
 
 };
-
+// containerDiv.parentElement.querySelector
 // Checks the answer and disable the buttons after cliclking an answer
 const checkAnswer = (e) =>
 {
     // Gets all the answer buttons
     const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
 
-    // Gets the correct answer
-    const correctAnswer = document.querySelector("#right-answer");
+    // Gets the correct answer of each question individually
+    const correctAnswer = e.currentTarget.parentElement.querySelector("#right-answer");
 
     // Gets the score label
     const theScoreTag = document.querySelector("#score-label");
