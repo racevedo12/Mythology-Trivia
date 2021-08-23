@@ -344,8 +344,17 @@ const gameResult = () =>
             // Creates the winner h1 to let user know if they won or not
             const winnerH1 = document.createElement("h1");
             
+            // Creates the play again button
+            const playAgainButton = document.createElement("button");
+            playAgainButton.innerText = "Click Here To Play Again";
+            // playAgainButton.addEventListener("click", playAgain);
+
+            // This is the minimum score that the user needs to have to win
+            // It's the half of the total number of questions
             const minimumWinScore = Math.floor(inputText.value / 2);
 
+            // If the user score is at least half of the total number of questions
+            // Or greater, than they won, otherwise they lost
             if (playerScore >= minimumWinScore)
             {
                 winnerH1.innerText = "YOU WON!";
@@ -360,6 +369,7 @@ const gameResult = () =>
             resultDiv.append(firstScoreH2);
             resultDiv.append(secondScoreH2);
             resultDiv.append(winnerH1);
+            resultDiv.append(playAgainButton);
 
             // Add the result div into the container div
             containerDiv.append(resultDiv);
