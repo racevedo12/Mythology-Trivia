@@ -144,8 +144,14 @@ const checkAnswer = (e) =>
     if (e.currentTarget.innerText === correctAnswer.innerText)
     {
         playerScore++;
+        alert("Correct!")
     }
 
+    else
+    {
+        alert("Incorrect!")
+    }
+    
     correctAnswer.classList.toggle("correct-answer");
     theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
 
