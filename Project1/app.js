@@ -12,6 +12,8 @@ const containerDiv = document.querySelector(".container");
 let playerScore = 0;
 
 // Variables for the API
+// this is from the website called open trivia database
+// Here is the website: https://opentdb.com/
 const baseURL = "https://opentdb.com/api.php?";
 const ampersand = "&";
 const amount = "amount=";
