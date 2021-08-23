@@ -122,15 +122,20 @@ const popupLayout = () =>
     document.body.classList.toggle("popup-color");
 };
 
-// Test
-// inputButton.parentElement.getElementsByClassName()
-
+// Checks the answer and disable the buttons after cliclking an answer
 const checkAnswer = (e) =>
 {
+    // Gets all the answer buttons
     const answerButtons = e.currentTarget.parentElement.getElementsByClassName("answers-buttons");
+
+    // Gets the correct answer
     const correctAnswer = answerButtons[2];
+
+    // Gets the score label
     const theScoreTag = document.querySelector("#score-label");
 
+    // Changes the color of the buttons to red if the answers are incorrect
+    // And disables all buttons so users cannot click on any answer after they chose one already
     for (button of answerButtons)
     {
         if (button.innerText !== correctAnswer.innerText)
@@ -138,12 +143,19 @@ const checkAnswer = (e) =>
             button.classList.toggle("wrong-answers")
         }
 
+        // Disable the button
         button.setAttribute("disabled", "true");
     }
 
+    // Changes the color of the correct answer to Green so they can know which was the correct answer
+    correctAnswer.classList.toggle("correct-answer");
+
+    // If the button that the user clicked is the correct answer then give them a +1 to the score
+    // Also tell them if they got the correct answer or not
     if (e.currentTarget.innerText === correctAnswer.innerText)
     {
         playerScore++;
+        theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
         alert("Correct!")
     }
 
@@ -151,14 +163,11 @@ const checkAnswer = (e) =>
     {
         alert("Incorrect!")
     }
-    
-    correctAnswer.classList.toggle("correct-answer");
-    theScoreTag.innerText = "Score: " + playerScore + "/" + inputText.value;
 
     gameResult();
-    
 };
 
+// Display the result of the trivia test
 const gameResult = () =>
 {
     // Gets all the questions divs containers
@@ -179,9 +188,6 @@ const gameResult = () =>
             disabledButtons.push(button);
         }
     }
-
-    console.log(allAnswerButtons.length)
-    console.log(disabledButtons.length)
 
     // Checks if all the questions have been answered by checking if all the buttons from each question are disabled
     if (allAnswerButtons.length === disabledButtons.length)
@@ -214,8 +220,6 @@ const gameResult = () =>
 const startGame = (e) =>
 {
     popupLayout();
-
-    // let keepPlaying = true;
 
     // Removes the preview div of questions
     e.currentTarget.parentElement.parentElement.remove()
