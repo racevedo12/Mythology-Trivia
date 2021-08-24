@@ -254,7 +254,7 @@ body
     .answers-buttons
     {
         max-width: 30%;
-        margin-left: 13%;
+        margin-left: 15%;
         margin-bottom: 6%;
     }
 
@@ -265,7 +265,6 @@ body
     }
 
 }
-
 
 /* For Large Mobile Devices */
 @media (max-width: 425px)
@@ -371,7 +370,6 @@ body
 
     #input-label
     {
-        font-size: 24px;
         margin-left: 4%;
     }
 
@@ -384,7 +382,6 @@ body
     #preview-div
     {
         margin: 0 auto;
-        font-size: 59%;
     }
 
     .preview-elements
@@ -399,7 +396,7 @@ body
         padding-bottom: 8%;
     }
 
-    .preview-answers-label
+    .preview-answer-label
     {
         margin-right: 10%;
     }
@@ -410,6 +407,8 @@ body
         padding: 3% 1%;
         margin-top: 19%;
         margin-bottom: 3%;
+        position: relative;
+        left: 50%;
     }
 
     #score-label 
@@ -433,7 +432,7 @@ body
     .answers-buttons
     {
         max-width: 30%;
-        margin-left: 13%;
+        margin-left: 30%;
         margin-bottom: 6%;
     }
 
@@ -481,8 +480,9 @@ body
         padding-bottom: 15%;
     }
 
-    .preview-answers-label
+    .preview-answer-label
     {
+        padding-right: 1%;
         padding-bottom: 15%;
     }
 
@@ -492,6 +492,8 @@ body
         padding: 1% 1%;
         margin-top: 30%;
         margin-bottom: 3%;
+        position: relative;
+        left: 50%;
     }
 
     #score-label 
