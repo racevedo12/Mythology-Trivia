@@ -83,7 +83,7 @@ const previewQuestions = () =>
             // Creating a label tag for the question with all different answers with a class
             const previewQuestionLabel = document.createElement("label");
             previewQuestionLabel.setAttribute("class", "preview-question-label");
-            previewQuestionLabel.innerText = numOfQuestion + ") " + theQuestion + " " + theIncorrectAnswers +  ", " + theCorrectAnswer;
+            previewQuestionLabel.innerText = numOfQuestion + ") " + theQuestion + "\n\n" + theIncorrectAnswers +  "," + theCorrectAnswer;
             
             // Creating another label tag for the answer of the question with a class 
             const previewAnswerLabel = document.createElement("label");
@@ -384,6 +384,7 @@ const playAgain = () =>
 {
     // Found this method in MDN by googling refresh page MDN
     // This is the site https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+    // The method functions like the refresh button, it refreshes the page.
     
     // Refreshes the page in order to play again with brand new data
     location.reload()

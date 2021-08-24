@@ -1,3 +1,11 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
+
+
+
+/* Default Styles */
 body
 {
     margin: 2% 12%;
@@ -6,11 +14,13 @@ body
 
 .header-tags
 {
+    font-family: 'Lato', sans-serif;
     text-align: center;
 }
 
 .input-div
 {
+    font-family: 'Work Sans', sans-serif;
     margin-top: 8%;
 }
 
@@ -32,6 +42,7 @@ body
 
 #preview-div
 {
+    font-family: "Arial", sans-serif;
     border: black 1px solid;
     margin-top: 8%;
     background-color: aliceblue;
