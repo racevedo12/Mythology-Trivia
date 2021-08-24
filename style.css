@@ -9,7 +9,7 @@
 body
 {
     margin: 2% 12%;
-    background-color: bisque;
+    /* background: linear-gradient(to right, rgb(42, 185, 185), rgb(102, 102, 170) ); */
 }
 
 .header-tags
@@ -43,10 +43,11 @@ body
 #preview-div
 {
     font-family: "Arial", sans-serif;
-    border: black 1px solid;
+    border: black 3px solid;
     margin-top: 8%;
-    background-color: aliceblue;
-    margin-right: 15%;
+    background: aliceblue;
+    margin-right: 12%;
+    margin-left: 12%;
 }
 
 .popup-color
@@ -63,7 +64,7 @@ body
 {
     padding-top: 4%;
     padding-left: 4%;
-    margin-right: 7%;
+    /* margin-right: 7%; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -83,7 +84,7 @@ body
 
 #preview-button
 {
-    max-width: 25%;
+    max-width: 22%;
     padding: 4% 2%;
     margin-top: 20%;
     margin-bottom: 3%;
@@ -94,7 +95,7 @@ body
 
 #score-label
 {
-    margin-left: 45%;
+    margin-left: 43%;
     font-size: 30px;
 }
 
