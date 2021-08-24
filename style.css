@@ -174,7 +174,7 @@ body
 /*      Media Querys For Different Devices */
 /* -------------------------------------------- */
 
-/* For Medium Devices */
+/* For Medium Mobile Devices */
 @media (max-width: 375px)
 {
     body
@@ -264,7 +264,7 @@ body
 
 }
 
-/* For Small Devices */
+/* For Small Mobile Devices */
 @media (max-width: 320px)
 {
     body
