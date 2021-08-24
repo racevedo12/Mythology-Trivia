@@ -345,6 +345,7 @@ const gameResult = () =>
             
             // Creates the play again button
             const playAgainButton = document.createElement("button");
+            playAgainButton.setAttribute("id", "result-button");
             playAgainButton.innerText = "Click Here To Play Again";
             // playAgainButton.setAttribute("type", "submit");
             playAgainButton.addEventListener("click", playAgain);

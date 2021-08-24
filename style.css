@@ -1,15 +1,15 @@
 /* Fonts */
+/* Using google fonts */
+/* These fonts are so beautiful *_* */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 /* Default Styles */
 body
 {
     margin: 2% 12%;
-    /* background: linear-gradient(to right, rgb(42, 185, 185), rgb(102, 102, 170) ); */
 }
 
 .header-tags
@@ -20,7 +20,7 @@ body
 
 .input-div
 {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 8%;
 }
 
@@ -33,6 +33,11 @@ body
 #input-label
 {
     margin-right: 3%;
+}
+
+#input-text
+{
+    text-align: center;
 }
 
 #input-button
@@ -64,7 +69,6 @@ body
 {
     padding-top: 4%;
     padding-left: 4%;
-    /* margin-right: 7%; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -89,20 +93,23 @@ body
     margin-top: 20%;
     margin-bottom: 3%;
     
+    /* Positioning the button */
     position: relative;
     right: 10%;
 }
 
 #score-label
 {
+    font-family: 'Lato', sans-serif;
     margin-left: 43%;
     font-size: 30px;
 }
 
 .question-container-div
 {
-    border: 1px solid black;
+    border: 3px solid black;
     margin-bottom: 2%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .question-elements-div
@@ -146,5 +153,12 @@ body
 
 .result-div
 {
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+}
+
+#result-button
+{
+    width: 30%;
+    padding: 5%;
 }
