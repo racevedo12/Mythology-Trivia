@@ -46,7 +46,7 @@ body
     border: black 1px solid;
     margin-top: 8%;
     background-color: aliceblue;
-    margin-right: 20%;
+    margin-right: 15%;
 }
 
 .popup-color
@@ -63,7 +63,7 @@ body
 {
     padding-top: 4%;
     padding-left: 4%;
-    margin-right: 2%;
+    margin-right: 7%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -78,13 +78,13 @@ body
 .preview-answers-label
 {
     padding-right: 5%;
-    
+    margin-right: 3%
 }
 
 #preview-button
 {
-    max-width: 30%;
-    padding: 4% 5%;
+    max-width: 25%;
+    padding: 4% 2%;
     margin-top: 20%;
     margin-bottom: 3%;
     
