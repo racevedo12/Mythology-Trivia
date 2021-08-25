@@ -1,14 +1,16 @@
-/* Fonts */
-/* Using google fonts */
-/* These fonts are so beautiful *_* */
+/* -------------------------------------------- */
+/*                 The Fonts                    */
+/* -------------------------------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-/* ---------------------------------- */
+/* -------------------------------------------- */
+/*              Default Styles                  */
+/* -------------------------------------------- */
 
-/* Default Styles */
 body
 {
     margin: 2% 12%;
@@ -159,11 +161,6 @@ body
     width: 30%;
     padding: 5%;
 }
-
-
-
-
-
 
 /* -------------------------------------------- */
 /*      Media Querys For Different Devices */

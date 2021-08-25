@@ -1,10 +1,3 @@
-// Notes
-// Changed the layout idea of the start of the trivia from the wire frame into multiple divs DONE
-// Instead of showing the score under each div and the correct answer, change the colors of the answers DONE
-// And show the score at the top of the first question DONE
-// Random places for answers instead of hard coding positions of each one of them DONE
-// Add the last result div to let user know if they won or not DONE
-
 // Assign a variable for some elements
 const inputDiv = document.querySelector(".input-div");
 const inputText = document.querySelector("#input-text");
@@ -391,4 +384,6 @@ const playAgain = () =>
     location.reload()
 };
 
+// Assigns an event listener to the input button in order to get the data from the API and display the questions
+// For a review before taking the trivia
 inputButton.addEventListener("click", previewQuestions);
