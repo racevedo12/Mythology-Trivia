@@ -204,8 +204,9 @@ body
 
     .preview-question-label
     {
-        padding-right: 42%;
+        padding-right: 50%;
         padding-bottom: 5%;
+        max-width: 8%;
     }
 
     #preview-button
@@ -292,8 +293,8 @@ body
 
     .preview-question-label
     {
-        max-width: 26%;
-        padding-right: 34%;
+        max-width: 15%;
+        padding-right: 36%;
         padding-bottom: 5%;
     }
 
@@ -329,8 +330,8 @@ body
 
     .answers-buttons
     {
-        max-width: 10%;
-        margin-left: 30%;
+        max-width: 5%;
+        margin-left: 31%;
         margin-bottom: 6%;
     }
 
@@ -393,7 +394,7 @@ body
         margin-top: 4%;
         margin-bottom: 3%;
         position: relative;
-        left: 10%;
+        left: 7%;
     }
 
     #score-label 
@@ -479,7 +480,7 @@ body
         margin-top: 22%;
         margin-bottom: 3%;
         position: relative;
-        left: 10%;
+        left: 2%;
     }
 
     #score-label 
@@ -558,7 +559,7 @@ body
         padding-bottom: 8%;
     }
 
-    .preview-answers-label
+    .preview-answer-label
     {
         margin-bottom: 6%;
     }
