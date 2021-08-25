@@ -625,13 +625,13 @@ body
 
     #input-label
     {
-        margin-left: 4%;
+        margin-left: 0%;
     }
 
     #input-text
     {
         margin-top: 10%;
-        margin-left: 20%;
+        margin-left: 10%;
     }
 
     #preview-div
@@ -647,23 +647,24 @@ body
 
     .preview-question-label
     {
-        max-width: 39%;
+        max-width: 20%;
         padding-bottom: 8%;
+        margin-right: 0%;
     }
 
     .preview-answer-label
     {
-        margin-right: 10%;
+        margin-bottom: 10%;
     }
 
     #preview-button
     {
-        max-width: 30%;
-        padding: 3% 1%;
-        margin-top: 19%;
+        max-width: 50%;
+        padding: 4% 7%;
+        margin-top: 6%;
         margin-bottom: 3%;
         position: relative;
-        left: 50%;
+        left: 10%;
     }
 
     #score-label 
@@ -673,7 +674,7 @@ body
 
     .question-container-div
     {
-        margin-bottom: 5%;
+        margin-bottom: 0%;
     }
 
     .question-label
@@ -689,6 +690,7 @@ body
         max-width: 30%;
         margin-left: 30%;
         margin-bottom: 6%;
+        margin-right: 1%;
     }
 
     #result-button
@@ -720,7 +722,7 @@ body
     #input-text
     {
         margin-top: 10%;
-        margin-left: 15%;
+        margin-left: 8%;
     }
 
     #preview-div
@@ -731,21 +733,21 @@ body
 
     .preview-question-label
     {
-        max-width: 45%;
+        max-width: 25%;
         padding-bottom: 15%;
     }
 
     .preview-answer-label
     {
-        padding-right: 1%;
-        padding-bottom: 15%;
+        margin-bottom: 10%;
+        margin-right: 0%;
     }
 
     #preview-button
     {
-        max-width: 25%;
-        padding: 1% 1%;
-        margin-top: 30%;
+        max-width: 40%;
+        padding: 1%;
+        margin-top: 0%;
         margin-bottom: 3%;
         position: relative;
         left: 50%;
@@ -758,12 +760,12 @@ body
 
     .question-container-div
     {
-        margin-bottom: 5%;
+        margin-bottom: 0%;
     }
 
     .question-label
     {
-        margin-left: 28%;
+        margin-left: 21%;
         padding-top: 3%;
         padding-bottom: 5%;
         padding-right: 0%;
@@ -771,9 +773,10 @@ body
 
     .answers-buttons
     {
-        max-width: 30%;
-        margin-left: 13%;
+        max-width: 65%;
+        margin-left: 25%;
         margin-bottom: 6%;
+        margin-right: 15%;
     }
 
     #result-button
