@@ -169,6 +169,93 @@ body
 /*      Media Querys For Different Devices */
 /* -------------------------------------------- */
 
+/* For Larger Screens */
+@media (min-width: 2560px)
+{
+    body
+    {
+        margin: 0;
+    }
+
+    .input-div
+    {
+
+        margin-top: 4%;
+        margin-left: 7%;
+    }
+
+    #input-label
+    {
+        margin-left: 22%;
+    }
+
+    #preview-div
+    {
+        margin: 0 auto;
+    }
+
+    .preview-elements
+    {
+        padding-top: 4%;
+        padding-left: 4%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .preview-question-label
+    {
+        padding-right: 42%;
+        padding-bottom: 5%;
+    }
+
+    #preview-button
+    {
+        max-width: 30%;
+        padding: 4% 8%;
+        margin-top: 4%;
+        margin-bottom: 3%;
+        
+        /* Positioning the button */
+        position: relative;
+        right: 10%;
+    }
+
+    #score-label 
+    {
+        margin-left: 48%;
+    }
+
+    .question-container-div
+    {
+        margin-bottom: 0%;
+    }
+
+    .question-label
+    {
+        margin-left: 38%;
+        padding-top: 3%;
+        padding-bottom: 5%;
+        padding-right: 20%;
+    }
+
+    .answers-buttons
+    {
+        margin-left: 31%;
+        margin-bottom: 6%;
+    }
+
+    .result-div
+    {
+        font-size: 26px;
+    }
+
+    #result-button
+    {
+        width: 28%;
+        padding: 3%;
+    }
+
+}
 
 /* For Large Screen */
 @media (max-width: 1440px)
