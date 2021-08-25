@@ -174,6 +174,91 @@ body
 /*      Media Querys For Different Devices */
 /* -------------------------------------------- */
 
+
+/* For Medium Laptops */
+@media (max-width: 1024px)
+{
+    body
+    {
+        margin: 0;
+    }
+
+    .input-div
+    {
+        margin-top: 5%;
+        margin-left: 13%;
+    }
+
+    #input-label
+    {
+        font-size: 19px;
+        margin-left: 12%;
+    }
+
+    #input-text
+    {
+        margin-top: 3%;
+        margin-left: 24%;
+    }
+
+    #preview-div
+    {
+        margin: 0 auto;
+    }
+
+    .preview-elements
+    {
+        padding-top: 4%;
+        padding-left: 3%;
+    }
+
+    .preview-question-label
+    {
+        padding-bottom: 8%;
+        margin-right: 14%;
+    }
+
+    #preview-button
+    {
+        max-width: 30%;
+        padding: 3% 1%;
+        margin-top: 30%;
+        margin-bottom: 3%;
+    }
+
+    #score-label 
+    {
+        margin-left: 40%;
+    }
+
+    .question-container-div
+    {
+        margin-bottom: 5%;
+    }
+
+    .question-label
+    {
+        margin-left: 30%;
+        padding-top: 3%;
+        padding-bottom: 5%;
+        padding-right: 20%;
+    }
+
+    .answers-buttons
+    {
+        max-width: 30%;
+        margin-left: 15%;
+        margin-bottom: 6%;
+    }
+
+    #result-button
+    {
+        width: 48%;
+        padding: 9%;
+    }
+
+}
+
 /* For Tablet Devices */
 @media (max-width: 768px)
 {
