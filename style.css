@@ -101,6 +101,8 @@ body
     font-family: 'Lato', sans-serif;
     margin-left: 43%;
     font-size: 30px;
+    position: fixed;
+    top: 19%;
 }
 
 .question-container-div
@@ -221,6 +223,8 @@ body
     #score-label 
     {
         margin-left: 48%;
+        top: 28%;
+        font-size: 34px;
     }
 
     .question-container-div
@@ -310,6 +314,8 @@ body
     #score-label 
     {
         margin-left: 44%;
+        top: 25%;
+        font-size: 28px;
     }
 
     .question-container-div
@@ -327,7 +333,7 @@ body
 
     .answers-buttons
     {
-        max-width: 5%;
+        max-width: 8%;
         margin-left: 31%;
         margin-bottom: 6%;
     }
@@ -338,6 +344,15 @@ body
         padding: 4%;
     }
 
+}
+
+/* For The Size of the window that I'm working in */
+@media (max-width: 1157px)
+{
+    #score-label 
+    {
+        top: 19%;
+    }
 }
 
 /* For Medium Screen */
@@ -397,6 +412,8 @@ body
     #score-label 
     {
         margin-left: 42%;
+        top: 31%;
+        font-size: 26px;
     }
 
     .question-container-div
@@ -483,6 +500,8 @@ body
     #score-label 
     {
         margin-left: 40%;
+        top: 28%;
+        font-size: 25px;
     }
 
     .question-container-div
@@ -574,6 +593,8 @@ body
     #score-label 
     {
         margin-left: 30%;
+        top: 46%;
+        font-size: 23px;
     }
 
     .question-container-div
@@ -665,6 +686,8 @@ body
     #score-label 
     {
         margin-left: 30%;
+        top: 44%;
+        font-size: 22px;
     }
 
     .question-container-div
@@ -751,6 +774,8 @@ body
     #score-label 
     {
         margin-left: 30%;
+        top: 48%;
+        font-size: 22px;
     }
 
     .question-container-div
