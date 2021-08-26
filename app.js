@@ -70,8 +70,25 @@ const previewQuestions = () =>
         {
             // Declare variables to hold the questions and different answers
             let theQuestion = questionData.question;
+
+            // Cleaning the question to make it more readable by replacing those characters
+            // With more descriptive characters
+            theQuestion = theQuestion.replaceAll("&#039;", "'").replaceAll("&amp;", "&").replaceAll("&quot;",  '"');
+
             let theIncorrectAnswers = questionData.incorrect_answers;
+
+            // Looping through the incorrect answers array to replace every weird character from the answers
+            // To make it more readable 
+            for(let i = 0; i < theIncorrectAnswers.length; i++)
+            {
+                theIncorrectAnswers[i] = theIncorrectAnswers[i].replaceAll("&#039;", "'").replaceAll("&amp;", "&").replaceAll("&quot;",  '"');
+            }
+
             let theCorrectAnswer = questionData.correct_answer;
+
+            // Cleaning the correct answer to make it more readable by replacing those characters
+            // With more descriptive characters
+            theCorrectAnswer = theCorrectAnswer.replaceAll("&#039;", "'").replaceAll("&amp;", "&").replaceAll("&quot;",  '"');
 
             // Creating a label tag for the question with all different answers with a class
             const previewQuestionLabel = document.createElement("label");
